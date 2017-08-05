@@ -7,8 +7,14 @@ body {
   height: 100%;
 }
 
-.full-screen {
+.full-screen-index {
   background-image: url("../images/autumn-leaves.png");
+  width: 100%;
+/*  height is set by jquery in resize-background.js */
+}
+
+.full-screen-music {
+  background-image: url("../images/irish-session.png");
   width: 100%;
 /*  height is set by jquery in resize-background.js */
 }
@@ -84,4 +90,18 @@ a:link {
 
 p {
   font-size: 20px;
+}
+
+.content-container {
+  width: 70%;
+  margin-top: 15px;
+}
+
+.gray-border {
+  border-style: solid;
+  border-color: #C0C0C0;
+  border-bottom: 1px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 100%
 }
