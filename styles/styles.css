@@ -19,7 +19,7 @@ body {
 /*  height is set by jquery in resize-background.js */
 }
 
-.intro-container {
+.container {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -41,18 +41,6 @@ body {
 .blurb {
   padding-top: 40px;
   font-size: 22px;
-}
-
-.interests {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 40px;
-  font-size: 22px;
-}
-
-.interests div {
-  padding-top: 10px;
 }
 
 .contact-text {
