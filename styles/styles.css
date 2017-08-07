@@ -88,12 +88,11 @@ p {
 }
 
 .gray-border {
-  border-style: solid;
-  border-color: #C0C0C0;
-  border-bottom: 1px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  width: 100%
+  width: 100%;
+  border-top-style: solid;
+  border-width: 1px;
+  border-color: #D3D3D3;
+  margin: 5px;
 }
 
 .background-image {
