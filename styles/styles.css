@@ -2,59 +2,44 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-@media (max-width: 980px) {
-  .full-screen-index {
-    background-image: url("../images/autumn-leaves-small.png");
-  }
+.full-screen {
+  display: flex;
+  justify-content: center;
 }
 
-@media (min-width: 980px) {
-  .full-screen-index {
-    background-image: url("../images/autumn-leaves-big.png");
-  }
-}
-
-.full-screen-index {
-  background-repeat: no-repeat;
-/*  height is set by jquery in resize-background.js */
-}
-
-.full-screen-music {
-  background-image: url("../images/irish-session.png");
-/*  height is set by jquery in resize-background.js */
-}
-
-.container {
-  width: 100%;
+.content-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
 }
 
 .intro {
   padding-top: 30px;
   font-size: 22px;
   text-align: center;
+  color: white;
 }
 
 .name {
   padding-top: 10px;
   font-size: 32px;
   text-align: center;
+  color: white;
 }
 
 .blurb {
   padding-top: 40px;
   font-size: 22px;
   text-align: center;
+  color: white;
 }
 
 .contact-text {
   padding-top: 40px;
   font-size: 22px;
   text-align: center;
+  color: white;
 }
 
 .contact-bar {
@@ -102,11 +87,6 @@ p {
   font-size: 20px;
 }
 
-.content-container {
-  width: 70%;
-  margin-top: 15px;
-}
-
 .gray-border {
   border-style: solid;
   border-color: #C0C0C0;
@@ -114,4 +94,27 @@ p {
   margin-top: 15px;
   margin-bottom: 15px;
   width: 100%
+}
+
+.background-image {
+  background-repeat: no-repeat;
+/*  height is set by jquery in resize-background.js */
+}
+
+@media (max-width: 980px) {
+  .content-container {
+    width: 100%;
+  }
+  .background-image {
+    background-image: url("../images/autumn-leaves-small.png");
+  }
+}
+
+@media (min-width: 980px) {
+  .content-container {
+    width: 70%;
+  }
+  .background-image {
+    background-image: url("../images/autumn-leaves-big.png");
+  }
 }
