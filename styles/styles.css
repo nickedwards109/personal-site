@@ -117,3 +117,8 @@ p {
     background-image: url("../images/autumn-leaves-big.png");
   }
 }
+
+audio {
+  margin-bottom: 25px;
+  width: 90%;
+}
