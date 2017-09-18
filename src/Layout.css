@@ -24,3 +24,9 @@
   border-color: #D3D3D3;
   margin-top: 9px;
 }
+
+@media (max-width: 360px) {
+  .gray-line {
+    display: none;
+  }
+}
