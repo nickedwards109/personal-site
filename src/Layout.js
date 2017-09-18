@@ -6,11 +6,16 @@ class Layout extends Component {
     return (
       <div className="Layout">
         <div className="Layout-header">
-          <h2>Welcome to React</h2>
+          <h2>Nick Edwards</h2>
+          <div className="navbar-container">
+            <div className="gray-line"></div>
+            <div className="navbar-link">About</div>
+            <div className="navbar-link">Music</div>
+            <div className="navbar-link">Github</div>
+            <div className="navbar-link">LinkedIn</div>
+            <div className="gray-line"></div>
+          </div>
         </div>
-        <p className="Layout-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }

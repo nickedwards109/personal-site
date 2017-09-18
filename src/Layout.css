@@ -3,17 +3,24 @@
 }
 
 .Layout-header {
-  background-color: #222;
   height: 150px;
   padding: 20px;
-  color: white;
+  color: #ffab00;
 }
 
-.Layout-intro {
-  font-size: large;
+.navbar-container {
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.navbar-link {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.gray-line {
+  width: 100%;
+  border-top-style: solid;
+  border-width: 1px;
+  border-color: #D3D3D3;
+  margin-top: 9px;
 }
