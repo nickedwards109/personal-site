@@ -1,10 +1,19 @@
 .navbar-container {
   display: flex;
+  align-items: center;
+}
+
+.navbar-link-container {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  height: 2em;
+  display: flex;
+  align-items: center;
 }
 
 .navbar-link {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
 }
 
 .gray-line {
@@ -12,7 +21,6 @@
   border-top-style: solid;
   border-width: 1px;
   border-color: #D3D3D3;
-  margin-top: 9px;
 }
 
 @media (max-width: 360px) {
