@@ -10,6 +10,7 @@ class Routes extends Component {
   render() {
     return (
       <div className="routes-container">
+        <Route exact path="/" component={Content(About)} />
         <Route path="/about" component={Content(About)} />
         <Route path="/projects" component={Content(Projects)} />
         <Route path="/music" component={Content(Music)} />
