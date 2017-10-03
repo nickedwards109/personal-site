@@ -4,11 +4,12 @@ import About from './About';
 import Music from './Music';
 import Projects from './Projects';
 import Content from './Content';
+import './Routes.css';
 
-class PageContent extends Component {
+class Routes extends Component {
   render() {
     return (
-      <div>
+      <div className="routes-container">
         <Route path="/about" component={Content(About)} />
         <Route path="/projects" component={Content(Projects)} />
         <Route path="/music" component={Content(Music)} />
@@ -17,4 +18,4 @@ class PageContent extends Component {
   }
 }
 
-export default PageContent;
+export default Routes;

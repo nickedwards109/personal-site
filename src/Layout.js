@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Layout.css';
 import { BrowserRouter } from 'react-router-dom';
 import Navbar from './Navbar';
-import PageContent from './PageContent';
+import Routes from './Routes';
 
 class Layout extends Component {
   render() {
@@ -14,7 +14,7 @@ class Layout extends Component {
         <BrowserRouter>
           <div>
             <Navbar />
-            <PageContent />
+            <Routes />
           </div>
         </BrowserRouter>
       </div>
