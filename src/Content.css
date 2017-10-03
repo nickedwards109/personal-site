@@ -1,17 +1,8 @@
 .Fade-appear {
-  opacity: 0;
+  opacity: 0.1;
 }
 
 .Fade-appear.Fade-appear-active {
   opacity: 1;
-  transition: opacity 2s ease-in-out;
-}
-
-.Fade-leave {
-  opacity: 1;
-}
-
-.Fade-leave.Fade-leave-active {
-  opacity: 0;
-  transition: opacity 2s linear;
+  transition: opacity 0.8s ease-in-out;
 }
