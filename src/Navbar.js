@@ -4,15 +4,29 @@ import Paper from 'material-ui/Paper';
 import './Navbar.css';
 
 class Navbar extends Component {
+  constructor() {
+    super();
+    this.state = { active: "about" }
+  }
+
+  Paper(link) {
+    const depth = (this.state.active === link.props.name) ? 2 : 1;
+    return(
+      <Paper className="navbar-link-container" zDepth={depth}>
+        {link}
+      </Paper>
+    )
+  }
+
   render() {
     return (
       <div className="navbar-container">
         <div className="gray-line"></div>
-        <Paper className="navbar-link-container"><Link to="/about" className="navbar-link">About</Link></Paper>
-        <Paper className="navbar-link-container"><Link to="/projects" className="navbar-link">Projects</Link></Paper>
-        <Paper className="navbar-link-container"><Link to="/music" className="navbar-link">Music</Link></Paper>
-        <Paper className="navbar-link-container"><a href="https://github.com/nickedwards109" className="navbar-link">Github</a></Paper>
-        <Paper className="navbar-link-container"><a href="https://linkedin.com/in/nickedwards109" className="navbar-link">LinkedIn</a></Paper>
+          {this.Paper(<Link to="/about" className="navbar-link" name="about" onClick={() => this.setState({ active: "about"})}>About</Link>)}
+          {this.Paper(<Link to="/projects" className="navbar-link" name="projects" onClick={() => this.setState({ active: "projects"})}>Projects</Link>)}
+          {this.Paper(<Link to="/music" className="navbar-link" name="music" onClick={() => this.setState({ active: "music"})}>Music</Link>)}
+          {this.Paper(<a href="https://github.com/nickedwards109" className="navbar-link">Github</a>)}
+          {this.Paper(<a href="https://linkedin.com/in/nickedwards109" className="navbar-link">LinkedIn</a>)}
         <div className="gray-line"></div>
       </div>
     );
