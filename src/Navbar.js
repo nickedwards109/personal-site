@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Paper from 'material-ui/Paper';
 import './Navbar.css';
 
 class Navbar extends Component {
@@ -15,11 +14,12 @@ class Navbar extends Component {
   }
 
   Paper(link) {
-    const depth = (this.state.active === link.props.name) ? 2 : 1;
+    const isActive = (this.state.active === link.props.name);
+
     return(
-      <Paper className="navbar-link-container" zDepth={depth}>
+      <div className={`navbar-link-container active-${isActive}`}>
         {link}
-      </Paper>
+      </div>
     );
   }
 
