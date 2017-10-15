@@ -4,24 +4,7 @@ import { browserHistory } from 'react-router';
 import './Navbar.css';
 
 class Navbar extends Component {
-  constructor() {
-    super();
-    this.state = { active: "about" };
-    this.setActive = this.setActive.bind(this);
-  }
-
-  componentDidMount() {
-    const location = browserHistory.getCurrentLocation().pathname.slice(1);
-    this.setState({ active: location });
-  }
-
-  setActive(link_name) {
-    this.setState({ active: link_name });
-  }
-
-  Paper(link) {
-    const isActive = (this.state.active === link.props.name);
-
+  Paper(link, isActive) {
     return(
       <div className={`navbar-link-container active-${isActive}`}>
         {link}
@@ -30,12 +13,17 @@ class Navbar extends Component {
   }
 
   render() {
+    const location = browserHistory.getCurrentLocation().pathname.slice(1);
+    const aboutActive = (location === "about");
+    const projectsActive = (location === "projects");
+    const musicActive = (location === "music");
+
     return (
       <div className="navbar-container">
         <div className="gray-line"></div>
-          {this.Paper(<Link to="/about" className="navbar-link" name="about" onClick={() => this.setActive("about")}>About</Link>)}
-          {this.Paper(<Link to="/projects" className="navbar-link" name="projects" onClick={() => this.setActive("projects")}>Projects</Link>)}
-          {this.Paper(<Link to="/music" className="navbar-link" name="music" onClick={() => this.setActive("music")}>Music</Link>)}
+          {this.Paper(<Link to="/about" className="navbar-link" name="about" >About</Link>, aboutActive)}
+          {this.Paper(<Link to="/projects" className="navbar-link" name="projects" >Projects</Link>, projectsActive)}
+          {this.Paper(<Link to="/music" className="navbar-link" name="music" >Music</Link>, musicActive)}
           {this.Paper(<a href="https://github.com/nickedwards109" className="navbar-link">Github</a>)}
           {this.Paper(<a href="https://linkedin.com/in/nickedwards109" className="navbar-link">LinkedIn</a>)}
         <div className="gray-line"></div>
