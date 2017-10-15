@@ -14,7 +14,7 @@ class Navbar extends Component {
 
   render() {
     const location = browserHistory.getCurrentLocation().pathname.slice(1);
-    const aboutActive = (location === "about");
+    const aboutActive = (location === "about" || location === "");
     const projectsActive = (location === "projects");
     const musicActive = (location === "music");
 
