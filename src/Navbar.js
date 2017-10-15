@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { browserHistory } from 'react-router';
 import './Navbar.css';
 
 class Navbar extends Component {
@@ -7,6 +8,11 @@ class Navbar extends Component {
     super();
     this.state = { active: "about" };
     this.setActive = this.setActive.bind(this);
+  }
+
+  componentDidMount() {
+    const location = browserHistory.getCurrentLocation().pathname.slice(1);
+    this.setState({ active: location });
   }
 
   setActive(link_name) {
