@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Layout.css';
+import Header from './Header';
 import { BrowserRouter } from 'react-router-dom';
 import Navbar from './Navbar';
 import Routes from './Routes';
@@ -8,9 +9,7 @@ class Layout extends Component {
   render() {
     return (
       <div className="Layout">
-        <div className="Layout-header">
-          <h2>Nick Edwards</h2>
-        </div>
+        <Header />
         <BrowserRouter>
           <div>
             <Navbar />

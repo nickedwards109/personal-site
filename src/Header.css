@@ -1,0 +1,10 @@
+.header-container {
+  height: 300px;
+  padding-top: 10px;
+  color: #ffab00;
+}
+
+img.avatar {
+  margin: 0px;
+  border-radius: 50%;
+}
