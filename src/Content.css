@@ -6,3 +6,34 @@
   opacity: 1;
   transition: opacity 0.8s ease-in-out;
 }
+
+.content-container {
+  display: flex;
+  justify-content: center;
+  width: 66%;
+}
+
+.content-divider {
+  text-align: center;
+  width: 100%;
+  border-top-style: solid;
+  border-width: 1px;
+  border-color: #D3D3D3;
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+p {
+  line-height: 2.0;
+  text-align: left;
+}
+
+img.full-size {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+img.border {
+  border-style: solid;
+  border-width: 1px;
+}

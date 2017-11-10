@@ -4,7 +4,7 @@ import './Content.css';
 
 const Content = (Content) => {
   return props => (
-    <div>
+    <div className="content-container">
       <ReactCSSTransitionGroup
         transitionName="Fade"
         transitionAppear={true}
