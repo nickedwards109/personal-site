@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { browserHistory } from 'react-router';
+import { createBrowserHistory } from 'history';
 import './Navbar.css';
 
 class Navbar extends Component {
@@ -13,7 +13,7 @@ class Navbar extends Component {
   }
 
   render() {
-    const location = browserHistory.getCurrentLocation().pathname.slice(1);
+    const location = createBrowserHistory().location.pathname.slice(1);
     const aboutActive = (location === "about" || location === "");
     const projectsActive = (location === "projects");
     const musicActive = (location === "music");
