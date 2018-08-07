@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Projects.css';
+import ecologicalObservationsMapUI from './img/ecological-observations-map-ui.jpg';
 import cncRouterImage from './img/cnc-router.jpg';
 import cncElectronicsImage from './img/cnc-electronics.jpg';
 import toolPath from './img/toolpath.jpg';
@@ -18,6 +19,19 @@ class Projects extends Component {
   render () {
     return (
       <div>
+        <div className="project-container">
+          <h3>Cloud-deployed Full-Stack Map Application</h3>
+          <div className="project-body">
+            <p>This is my first successful attempt at developing and deploying a cross-platform application that serves up locational data and displays it on a map UI.</p>
+            <img src={ecologicalObservationsMapUI} alt="Map UI" classname="full-size" />
+            <p>A client application uses jQuery to send an HTTP request to a server for JSON that represents observations of biological species in nature. The client displays the locational data on a map using the Google Maps JavaScript API. It is deployed using Amazon S3.</p>
+            <p>The server is a Rails application that exposes API endpoints which are tested using RSpec. The server connects to a database in a PostgreSQL instance which contains tables representing biological species and observations of those species, as well as a one-to-many relationship between species and observations.</p>
+            <p>The server application and the PostgreSQL instance are both deployed on Google Cloud App Engine.</p>
+            <p>For now, I have been inserting data into the database using SQL statements via the psql command-line interface, but eventually I'll get around to setting up the client to send POST requests to the server. It is a work in progress!</p>
+            <p>The client repository is located at<a href="https://github.com/nickedwards109/ecological-observation-client/">https://github.com/nickedwards109/ecological-observation-client/</a>, and the server repository is located at<a href="https://github.com/nickedwards109/ecological-observation-server/">https://github.com/nickedwards109/ecological-observation-server/</a>. Feel free to reach out to me for the production URLs.</p>
+          </div>
+          <div className="content-divider"></div>
+        </div>
         <div className="project-container">
           <h3>CNC Router Build</h3>
           <div className="project-body">
