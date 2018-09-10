@@ -23,3 +23,11 @@
   width: 583px;
   margin-right: 50px;
 }
+
+.extra-space-beneath {
+  margin-bottom: 50px;
+}
+
+ li {
+   text-align: left;
+ }
