@@ -2,7 +2,7 @@ import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './Content.css';
 
-const Content = (Content) => {
+const Content = (Component, data) => {
   return props => (
     <div className="content-container">
       <ReactCSSTransitionGroup
@@ -12,7 +12,7 @@ const Content = (Content) => {
         transitionLeave={true}
         transitionLeaveTimeout={1000}
       >
-        <Content />
+        <Component data={data}/>
       </ReactCSSTransitionGroup>
     </div>
   );
