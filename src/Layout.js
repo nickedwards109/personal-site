@@ -15,9 +15,8 @@ class Layout extends Component {
 
   componentDidMount() {
     let httpClient = axios.create();
-
     // TODO: get data from the API for every page, not just the projects page
-    httpClient.get('http://ec2-18-191-173-15.us-east-2.compute.amazonaws.com/api/v1/projects').then((response) => {
+    httpClient.get('http://d38p3zajsrfmm0.cloudfront.net/api/v1/projects').then((response) => {
       this.setState({ projects: response.data });
     });
   }
