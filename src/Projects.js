@@ -7,9 +7,9 @@ class Projects extends Component {
   // generate HTML templates to render.
   displayProjects() {
     let projects = this.props.data.map(project => {
-      let children = this.generateStackOfChildren(project);
+      let children = this.generateStackOfProjectChildren(project);
       let sortedChildren = this.sortChildren(children);
-      let sortedChildrenTemplates = this.generateChildrenTemplates(sortedChildren);
+      let sortedChildrenTemplates = this.generateProjectChildrenTemplates(sortedChildren);
       return sortedChildrenTemplates;
     });
 
@@ -18,7 +18,7 @@ class Projects extends Component {
 
   // This method aggregates all of the children in one data structure so that
   // they can be sorted according to the order they are intended to be displayed in.
-  generateStackOfChildren(project) {
+  generateStackOfProjectChildren(project) {
     let projectChildren = [];
     projectChildren.push(project.title)
     project.paragraphs.forEach(paragraph => {
@@ -28,6 +28,17 @@ class Projects extends Component {
       projectChildren.push(image);
     });
     return projectChildren;
+  }
+
+  generateStackOfParagraphChildren(paragraph) {
+    let paragraphChildren = [];
+    paragraph.sentence_groups.forEach(sentenceGroup => {
+      paragraphChildren.push(sentenceGroup);
+    });
+    paragraph.links.forEach(link => {
+      paragraphChildren.push(link);
+    });
+    return paragraphChildren;
   }
 
   // Each child of a project has an order_index indicating where in the sequence
@@ -40,11 +51,15 @@ class Projects extends Component {
   }
 
   // Make an array containing an HTML template for each child
-  generateChildrenTemplates(sortedProjectChildren) {
+  generateProjectChildrenTemplates(sortedProjectChildren) {
     return sortedProjectChildren.map(projectChild => {
-       if (projectChild.copy) {
+       if (projectChild.sentence_groups) {
+         let paragraph = projectChild;
          // It is a paragraph
-         return <p>{projectChild.copy}</p>
+         // Sort its children
+         let paragraphChildren = this.generateStackOfParagraphChildren(paragraph);
+         let sortedSentencesAndLinks = this.sortChildren(paragraphChildren);
+         return this.generateParagraphTemplate(sortedSentencesAndLinks);
        }
        else if (projectChild.url) {
          // It is an image
@@ -55,6 +70,20 @@ class Projects extends Component {
          return <h3>{projectChild}</h3>
        }
     });
+  }
+
+  generateParagraphTemplate(paragraphElements) {
+    let templates = paragraphElements.map(element => {
+      if (element.copy) {
+        // It is a group of sentences
+        return <p>{element.copy}</p>
+      }
+      else if (element.url) {
+        // It is a link
+        return <a href={element.url}>{element.url}</a>
+      }
+    });
+    return templates;
   }
 
   // Make an array containing an HTML template for each project
