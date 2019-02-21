@@ -76,14 +76,14 @@ class Projects extends Component {
     let templates = paragraphElements.map(element => {
       if (element.copy) {
         // It is a group of sentences
-        return <p>{element.copy}</p>
+        return <span>{element.copy}</span>
       }
       else if (element.url) {
         // It is a link
-        return <a href={element.url}>{element.url}</a>
+        return <span> <a href={element.url}>{element.url}</a> </span>
       }
     });
-    return templates;
+    return <p>{templates}</p>;
   }
 
   // Make an array containing an HTML template for each project
