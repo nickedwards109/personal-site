@@ -80,7 +80,7 @@ class Projects extends Component {
       }
       else if (element.url) {
         // It is a link
-        return <span> <a href={element.url}>{element.url}</a> </span>
+        return <span> <a className="external-link" href={element.url}>{element.url}</a> </span>
       }
     });
     return <p>{templates}</p>;

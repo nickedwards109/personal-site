@@ -33,6 +33,7 @@
    text-align: left;
  }
 
- a {
+a.external-link {
    padding: 0em;
+   word-break: break-all;
  }
