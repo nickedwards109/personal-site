@@ -10,7 +10,22 @@ class Projects extends Component {
       let children = this.generateStackOfProjectChildren(project);
       let sortedChildren = this.sortChildren(children);
       let sortedChildrenTemplates = this.generateProjectChildrenTemplates(sortedChildren);
-      return sortedChildrenTemplates;
+      if (project.alignment === "center") {
+        // A project whose display is aligned on the center doesn't need any
+        // further processing beyond sorting the children in order and putting
+        // them in templates. This project is ready to display.
+        return sortedChildrenTemplates;
+      }
+      else {
+        // A project whose display is not aligned on the center needs to have
+        // its title separated from the rest of the paragraphs and images, and
+        // the paragraphs and
+        let leftTemplate = this.generateLeftTemplate(sortedChildrenTemplates, project);
+        let rightTemplate = this.generateRightTemplate(sortedChildrenTemplates, project);
+        let combinedLeftAndRightTemplates = this.combine(leftTemplate, rightTemplate);
+        let projectTemplateWithTitle = this.addTitle(combinedLeftAndRightTemplates, project);
+        return projectTemplateWithTitle;
+      }
     });
 
     return this.generateFinalProjectTemplates(projects);
@@ -84,6 +99,33 @@ class Projects extends Component {
       }
     });
     return <p>{templates}</p>;
+  }
+
+  generateLeftTemplate(sortedChildrenTemplates, project) {
+    return <div className="project-copy-left">
+             {sortedChildrenTemplates.slice(1, project.number_of_left_aligned_elements + 1)}
+           </div>;
+  }
+
+  generateRightTemplate(sortedChildrenTemplates, project) {
+    return <div className="project-copy-right">
+             {sortedChildrenTemplates.slice(project.number_of_left_aligned_elements + 1, sortedChildrenTemplates.length)}
+           </div>;
+  }
+
+  combine(leftTemplate, rightTemplate) {
+    return <div className="split-container">
+             {leftTemplate}
+             {rightTemplate}
+           </div>
+  }
+
+  addTitle(combinedLeftAndRightTemplates, project) {
+    let title = project.title;
+    return <div>
+             <h3>{title}</h3>
+             <div>{combinedLeftAndRightTemplates}</div>
+           </div>
   }
 
   // Make an array containing an HTML template for each project

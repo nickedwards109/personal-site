@@ -10,19 +10,23 @@
   flex-wrap: wrap;
 }
 
-.project-images {
+.split-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .project-copy-right {
-  width: 583px;
-  margin-left: 50px;
+  width: 45%;
+  min-width: 320px;
+  margin-left: 5%;
 }
 
 .project-copy-left {
-  width: 583px;
-  margin-right: 50px;
+  width: 45%;
+  min-width: 320px;
+  margin-right: 5%;
 }
 
 .extra-space-beneath {
