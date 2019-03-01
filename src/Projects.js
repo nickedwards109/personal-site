@@ -78,7 +78,7 @@ class Projects extends Component {
        }
        else if (projectChild.url) {
          // It is an image
-         return <img src={projectChild.url} alt="Project" className="full-size"></img>
+         return <img src={projectChild.url} alt="Project" className="image"></img>
        }
        else {
          // It is the title

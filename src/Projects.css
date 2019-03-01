@@ -41,3 +41,8 @@ a.external-link {
    padding: 0em;
    word-break: break-all;
  }
+
+ .image {
+   margin-top: 25px;
+   margin-bottom: 25px;
+ }
