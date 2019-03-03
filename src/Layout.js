@@ -9,15 +9,15 @@ import axios from 'axios';
 class Layout extends Component {
   constructor(props) {
     super(props);
-    this.state = { projects: []}
+    this.state = { pages: []}
     this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   componentDidMount() {
     let httpClient = axios.create();
     // TODO: get data from the API for every page, not just the projects page
-    httpClient.get('https://d1mfopmja8p1bf.cloudfront.net/api/v1/projects').then((response) => {
-      this.setState({ projects: response.data });
+    httpClient.get('https://d333gjjjwdp7y8.cloudfront.net/api/v1/pages').then((response) => {
+      this.setState({ pages: response.data });
     });
   }
 

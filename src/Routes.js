@@ -12,7 +12,7 @@ class Routes extends Component {
       <div className="routes-container">
         <Route exact path="/" component={Content(About)} />
         <Route path="/about" component={Content(About)} />
-        <Route path="/projects" component={Content(Projects, this.props.content.projects)} />
+        <Route path="/projects" component={Content(Projects, this.props.content.pages)} />
         <Route path="/music" component={Content(Music)} />
       </div>
     );

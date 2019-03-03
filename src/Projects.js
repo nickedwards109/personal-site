@@ -6,29 +6,38 @@ class Projects extends Component {
   // Aggregate them into a single data structure, sort them in order, and
   // generate HTML templates to render.
   displayProjects() {
-    let projects = this.props.data.map(project => {
-      let children = this.generateStackOfProjectChildren(project);
-      let sortedChildren = this.sortChildren(children);
-      let sortedChildrenTemplates = this.generateProjectChildrenTemplates(sortedChildren);
-      if (project.alignment === "center") {
-        // A project whose display is aligned on the center doesn't need any
-        // further processing beyond sorting the children in order and putting
-        // them in templates. This project is ready to display.
-        return sortedChildrenTemplates;
-      }
-      else {
-        // A project whose display is not aligned on the center needs to have
-        // its title separated from the rest of the paragraphs and images, and
-        // the paragraphs and
-        let leftTemplate = this.generateLeftTemplate(sortedChildrenTemplates, project);
-        let rightTemplate = this.generateRightTemplate(sortedChildrenTemplates, project);
-        let combinedLeftAndRightTemplates = this.combine(leftTemplate, rightTemplate);
-        let projectTemplateWithTitle = this.addTitle(combinedLeftAndRightTemplates, project);
-        return projectTemplateWithTitle;
-      }
-    });
+    // When the component is first mounted, props will not have data in it
+    // because the API won't have responded yet. Once the API responds, state
+    // will be set in the top-level component and passed down as props. If there
+    // isn't yet any data in props, don't try to make templates for the UI.
+    if (this.props.data.length !== 0) {
+      let projects_page = this.props.data.find(page => {
+        return page.title === "Projects";
+      });
+      let projects = projects_page.sections.map(project => {
+        let children = this.generateStackOfProjectChildren(project);
+        let sortedChildren = this.sortChildren(children);
+        let sortedChildrenTemplates = this.generateProjectChildrenTemplates(sortedChildren);
+        if (project.alignment === "center") {
+          // A project whose display is aligned on the center doesn't need any
+          // further processing beyond sorting the children in order and putting
+          // them in templates. This project is ready to display.
+          return sortedChildrenTemplates;
+        }
+        else {
+          // A project whose display is not aligned on the center needs to have
+          // its title separated from the rest of the paragraphs and images, and
+          // the paragraphs and
+          let leftTemplate = this.generateLeftTemplate(sortedChildrenTemplates, project);
+          let rightTemplate = this.generateRightTemplate(sortedChildrenTemplates, project);
+          let combinedLeftAndRightTemplates = this.combine(leftTemplate, rightTemplate);
+          let projectTemplateWithTitle = this.addTitle(combinedLeftAndRightTemplates, project);
+          return projectTemplateWithTitle;
+        }
+      });
 
-    return this.generateFinalProjectTemplates(projects);
+      return this.generateFinalProjectTemplates(projects);
+    }
   }
 
   // This method aggregates all of the children in one data structure so that
