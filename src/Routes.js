@@ -10,8 +10,8 @@ class Routes extends Component {
   render() {
     return (
       <div className="routes-container">
-        <Route exact path="/" component={Content(About)} />
-        <Route path="/about" component={Content(About)} />
+        <Route exact path="/" component={Content(About, this.props.content.pages)} />
+        <Route path="/about" component={Content(About, this.props.content.pages)} />
         <Route path="/projects" component={Content(Projects, this.props.content.pages)} />
         <Route path="/music" component={Content(Music)} />
       </div>

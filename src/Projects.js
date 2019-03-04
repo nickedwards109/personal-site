@@ -26,8 +26,11 @@ class Projects extends Component {
         }
         else {
           // A project whose display is not aligned on the center needs to have
-          // its title separated from the rest of the paragraphs and images, and
-          // the paragraphs and
+          // its title separated from the rest of the paragraphs and images. The
+          // title would be displayed in the center, and the paragraphs and images
+          // would be ordered in a stack and placed with a specified number
+          // of elements on the left side and the remaining elements on the
+          // right side.
           let leftTemplate = this.generateLeftTemplate(sortedChildrenTemplates, project);
           let rightTemplate = this.generateRightTemplate(sortedChildrenTemplates, project);
           let combinedLeftAndRightTemplates = this.combine(leftTemplate, rightTemplate);
