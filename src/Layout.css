@@ -1,3 +1,52 @@
-.Layout {
-  text-align: center;
+.section-container {
+  display: flex;
+  flex-direction: column;
 }
+
+.section-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.split-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.copy-right {
+  width: 45%;
+  min-width: 320px;
+  margin-left: 5%;
+}
+
+.copy-left {
+  width: 45%;
+  min-width: 320px;
+  margin-right: 5%;
+}
+
+.extra-space-beneath {
+  margin-bottom: 50px;
+}
+
+ li {
+   text-align: left;
+ }
+
+a.external-link {
+   padding: 0em;
+   word-break: break-all;
+ }
+
+ .image {
+   margin-top: 25px;
+   margin-bottom: 25px;
+ }
+
+ .Layout {
+   text-align: center;
+ }
