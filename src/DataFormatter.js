@@ -90,7 +90,7 @@ class DataFormatter extends Component {
        }
        else if (child.url) {
          // It is an image
-         return <img src={child.url} className="image"></img>
+         return <img src={child.url} alt="" className="image"></img>
        }
        else {
          // It is the title
